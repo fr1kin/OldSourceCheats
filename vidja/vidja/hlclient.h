@@ -1,0 +1,91 @@
+class CHLClient;
+#ifndef __vidja_chlclient_
+#define __vidja_chlclient_
+
+class CHLClient
+{
+public:
+	virtual void Init(void*,void*,void*,void*);
+	virtual void PostInit(void);
+	virtual void Shutdown(void);
+	virtual void ReplayInit(void*);
+	virtual void ReplayPostInit(void);
+	virtual void LevelInitPreEntity(char  const*);
+	virtual void LevelInitPostEntity(void);
+	virtual void LevelShutdown(void);
+	virtual void GetAllClasses(void);
+	virtual void HudVidInit(void);
+	virtual void HudProcessInput(bool);
+	virtual void HudUpdate(bool);
+	virtual void HudReset(void);
+	virtual void HudText(char  const*);
+	virtual void IN_ActivateMouse(void);
+	virtual void IN_DeactivateMouse(void);
+	virtual void IN_Accumulate(void);
+	virtual void IN_ClearStates(void);
+	virtual void IN_IsKeyDown(char  const*,bool &);
+	virtual void IN_OnMouseWheeled(int);
+	virtual void IN_KeyEvent(int,void*,char  const*);
+	virtual void CreateMove(int,float,bool);
+	virtual void ExtraMouseSample(float,bool);
+	virtual void WriteUsercmdDeltaToBuffer(void *,int,int,bool);
+	virtual void EncodeUserCmdToBuffer(void *,int);
+	virtual void DecodeUserCmdFromBuffer(void *,int);
+	virtual void View_Render(void *);
+	virtual void RenderView(void *,int,int);
+	virtual void View_Fade(void *);
+	virtual void SetCrosshairAngle(void*);
+	virtual void InitSprite(void *,char  const*);
+	virtual void ShutdownSprite(void *);
+	virtual void GetSpriteSize(void)const;
+	virtual void VoiceStatus(int,int);
+	virtual void InstallStringTableCallback(char  const*);
+	virtual void FrameStageNotify(void*);
+	virtual void DispatchUserMessage(int,void*);
+	virtual void SaveInit(int);
+	virtual void SaveWriteFields(void *,char  const*,void *,void *,void *,int);
+	virtual void SaveReadFields(void *,char  const*,void *,void *,void *,int);
+	virtual void PreSave(void *);
+	virtual void Save(void *);
+	virtual void WriteSaveHeaders(void *);
+	virtual void ReadRestoreHeaders(void *);
+	virtual void Restore(void *,bool);
+	virtual void DispatchOnRestore(void);
+	virtual void GetStandardRecvProxies(void);
+	virtual void WriteSaveGameScreenshot(char  const*);
+	virtual void EmitSentenceCloseCaption(char  const*);
+	virtual void EmitCloseCaption(char  const*,float);
+	virtual void CanRecordDemo(char *,int)const;
+	virtual void OnDemoRecordStart(char  const*);
+	virtual void OnDemoRecordStop(void);
+	virtual void OnDemoPlaybackStart(char  const*);
+	virtual void OnDemoPlaybackStop(void);
+	virtual void ShouldDrawDropdownConsole(void);
+	virtual void GetScreenWidth(void);
+	virtual void GetScreenHeight(void);
+	virtual void WriteSaveGameScreenshotOfSize(char  const*,int,int,bool,bool);
+	virtual void GetPlayerView(void*);
+	virtual void SetupGameProperties(void*,void*,void*);
+	virtual void GetPresenceID(char  const*);
+	virtual void GetPropertyIdString(unsigned int);
+	virtual void GetPropertyDisplayString(unsigned int,unsigned int,char *,int);
+	virtual void InvalidateMdlCache(void);
+	virtual void IN_SetSampleTime(float);
+	virtual void ReloadFilesInList(void *);
+	virtual void StartStatsReporting(void *,bool);
+	virtual void HandleUiToggle(void);
+	virtual void ShouldAllowConsole(void);
+	virtual void GetRenamedRecvTableInfos(void);
+	virtual void GetClientUIMouthInfo(void);
+	virtual void FileReceived(char  const*,unsigned int);
+	virtual void TranslateEffectForVisionFilter(char  const*,char  const*);
+	virtual void ClientAdjustStartSoundParams(void *);
+	virtual void DisconnectAttempt(void);
+	virtual void GMOD_ReceiveServerMessage(void *,int);
+	virtual void GMOD_DoSnapshots(void);
+	virtual void GMOD_VoiceVolume(unsigned int,float);
+	virtual void GMOD_OnDrawSkybox(void);
+	virtual void IN_MouseWheelAnalog(int);
+};
+
+#endif
